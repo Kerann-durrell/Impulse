@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impulse - Ensemble vers votre réussite</title>
+
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --primary-blue: #1B3083;
+            --accent-green: #11dd9e;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --gray-bg: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vito Wide', 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-green {
+            color: var(--accent-green);
+        }
+
+        .text-blue {
+            color: var(--primary-blue);
+        }
+
+        .text-white {
+            color: var(--text-light);
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        /* Titres de section (NOS SERVICES, etc.) */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-green {
+            background-color: var(--accent-green);
+            color: var(--primary-blue);
+            border: none;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 25px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: var(--accent-green);
+        }
+
+        nav a:hover,
+        nav a.active {
+            opacity: 1;
+            color: var(--accent-green);
+        }
+
+        nav a.active {
+            border-bottom: 2px solid var(--accent-green);
+            padding-bottom: 5px;
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            height: 100vh;
+            min-height: 600px;
+            /* Assurez-vous que hero-bg.jpg est dans le dossier */
+            background-image: linear-gradient(rgba(27, 48, 131, 0.75), rgba(27, 48, 131, 0.5)), url('./images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding-top: 80px;
+        }
+
+        #hero h1 {
+            font-size: 3.8rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        #hero p {
+            max-width: 800px;
+            margin: 0 auto 35px;
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* --- SERVICES SECTION --- */
+        #services {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+
+        #services .section-title {
+            color: var(--primary-blue);
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            text-align: center;
+        }
+
+        .service-item {
+            padding: 20px;
+        }
+
+        /* Style pour les SVG intégrés */
+        .service-icon-svg {
+            height: 65px;
+            width: auto;
+            margin-bottom: 25px;
+            display: inline-block;
+            /* Couleur verte pour les services */
+            fill: var(--accent-green);
+        }
+
+        .service-item h3 {
+            color: var(--primary-blue);
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .service-item p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        /* --- HISTOIRE SECTION --- */
+        #histoire {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            overflow: hidden;
+        }
+
+        .histoire-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .histoire-img-col {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .histoire-img-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+        }
+
+        .histoire-text-col {
+            flex: 1;
+            padding: 100px 60px;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .histoire-text-col h2 {
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .histoire-text-col p {
+            margin-bottom: 25px;
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* --- CHIFFRES SECTION --- */
+        #chiffres {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 50px 0 100px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            /* Légère séparation visuelle */
+        }
+
+        #chiffres .section-title {
+            margin-bottom: 60px;
+        }
+
+        .chiffres-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .chiffre-item h3 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent-green);
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .chiffre-item p {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* --- OBJECTIFS SECTION --- */
+        #objectifs {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+
+        .objectifs-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .objectifs-content {
+            flex: 1;
+        }
+
+        .objectifs-content .section-title {
+            color: var(--primary-blue);
+            text-align: left;
+            margin-bottom: 50px;
+        }
+
+        .objectif-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .objectif-icon-svg {
+            width: 50px;
+            height: 50px;
+            margin-right: 25px;
+            flex-shrink: 0;
+            /* Couleur bleue pour les objectifs, comme sur la maquette (contours) */
+            fill: var(--primary-blue);
+        }
+
+        .objectif-text h3 {
+            color: var(--primary-blue);
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .objectif-text p {
+            font-size: 0.95rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .objectifs-image {
+            flex: 1;
+        }
+
+        .objectifs-image img {
+            border-radius: 25px;
+            width: 100%;
+            height: auto;
+            box-shadow: 0 10px 30px rgba(27, 48, 131, 0.1);
+        }
+
+        /* --- CTA BANDEAU --- */
+        #cta {
+            /* Dégradé vert turquoise style maquette */
+            background: linear-gradient(to right, #9FF0D3, #7CE2C1);
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        #cta h2 {
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        #cta p {
+            color: var(--primary-blue);
+            margin-bottom: 35px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        #cta .btn {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 15px 40px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 80px 0 30px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: flex-start;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+            color: var(--accent-green);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            font-weight: 500;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+
+            /* Tablette paysage / petits desktops */
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            #hero h1 {
+                font-size: 3rem;
+            }
+
+            .chiffre-item h3 {
+                font-size: 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                /* Le logo passe au dessus */
+            }
+
+            .footer-grid>div:first-child {
+                grid-column: span 4;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            /* Tablette portrait / gros mobiles */
+            nav {
+                display: none;
+                /* Menu burger à implémenter si besoin */
+            }
+
+            header {
+                padding: 15px 0;
+            }
+
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .histoire-wrapper {
+                flex-direction: column;
+            }
+
+            .histoire-img-col {
+                height: 300px;
+            }
+
+            .histoire-text-col {
+                padding: 50px 30px;
+            }
+
+            .objectifs-wrapper {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .objectifs-image {
+                order: -1;
+                /* Image au dessus sur mobile */
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid>div:first-child {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            /* Mobile standard */
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chiffres-grid {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-grid>div:first-child {
+                grid-column: span 1;
+            }
+
+            #hero {
+                padding-top: 60px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#">
+                <img src="./images/logo-impulse.png" alt="Impulse Logo" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Accueil</a></li>
+                    <li><a href="./client.php">Nos clients</a></li>
+                    <li><a href="./services.php">Nos services</a></li>
+                    <li><a href="./contact.php">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>ENSEMBLE VERS<br>VOTRE <span class="text-green">RÉUSSITE !</span></h1>
+            <p>
+                Dans un monde en constante évolution, les préoccupations sportives et économiques prennent de l'ampleur. Tout comme les nouvelles attentes des entreprises et des athlètes. Pour s'adapter à ces changements, les diversités actuelles exigent de réinventer les professions. C'est pourquoi nous, chez Impulse, souhaitons jouer un rôle majeur dans la transformation et l'aboutissement de ces acteurs à la réussite.
+            </p>
+            <a href="./contact.php" class="btn btn-green">Nous contacter</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title text-blue">NOS <span class="text-green">SERVICES</span></h2>
+
+            <div class="services-grid">
+                <div class="service-item">
+                    <svg class="service-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20,4H16.83L15,2H9L7.17,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M20,18H4V6H8.05L9.88,4H14.12L15.95,6H20V18M12,7A5,5 0 1,0 17,12A5,5 0 0,0 12,7M12,15A3,3 0 1,1 15,12A3,3 0 0,1 12,15Z" />
+                    </svg>
+                    <h3>Photos et Vidéos.</h3>
+                    <p>Production de contenus photos et vidéos dynamiques pour valoriser l'univers sportif, les performances et les émotions.</p>
+                </div>
+                <div class="service-item">
+                    <svg class="service-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M16.21,4.16L12.5,7.87L16.13,11.5L19.84,7.79C20.04,7.59 20.14,7.34 20.14,7.09C20.14,6.83 20.04,6.58 19.84,6.39L17.61,4.16C17.42,3.96 17.17,3.86 16.91,3.86C16.66,3.86 16.41,3.96 16.21,4.16M15.07,12.56L11.44,8.93L4.21,16.16C4.05,16.32 3.93,16.5 3.86,16.71L3,20.13C2.92,20.45 3.03,20.78 3.28,21.03C3.5,21.25 3.81,21.37 4.12,21.37C4.2,21.37 4.28,21.36 4.36,21.34L7.79,20.47C8,20.41 8.18,20.29 8.34,20.13L15.56,12.91C15.58,12.89 15.59,12.88 15.61,12.86C15.39,12.81 15.21,12.71 15.07,12.56M11.8,20.75L8.22,17.16L18.2,7.18L21.79,10.77L11.8,20.75Z" />
+                    </svg>
+                    <h3>Création Graphique.</h3>
+                    <p>Création de visuels percutants et sportifs pour renforcer l'identité et l'image de marque.</p>
+                </div>
+                <div class="service-item">
+                    <svg class="service-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12,6A3,3 0 0,0 9,9A3,3 0 0,0 12,12A3,3 0 0,0 15,9A3,3 0 0,0 12,6M6,8.17A2.5,2.5 0 0,0 3.5,10.67A2.5,2.5 0 0,0 6,13.17C6.88,13.17 7.65,12.71 8.09,12.03C7.42,11.18 7,10.15 7,9C7,8.8 7,8.6 7.04,8.4C6.72,8.25 6.37,8.17 6,8.17M18,8.17C17.63,8.17 17.28,8.25 16.96,8.4C17,8.6 17,8.8 17,9C17,10.15 16.58,11.18 15.91,12.03C16.35,12.71 17.12,13.17 18,13.17A2.5,2.5 0 0,0 20.5,10.67A2.5,2.5 0 0,0 18,8.17M12,14C10,14 6,15 6,17V19H18V17C18,15 14,14 12,14M4.67,14.97C3,15.26 1,16.04 1,17.33V19H4V17C4,16.22 4.29,15.53 4.67,14.97M19.33,14.97C19.71,15.53 20,16.22 20,17V19H23V17.33C23,16.04 21,15.26 19.33,14.97Z" />
+                    </svg>
+                    <h3>Sponsoring et Mécénat.</h3>
+                    <p>Accompagnement dans la mise en place de partenariats sportifs stratégiques et durables.</p>
+                </div>
+                <div class="service-item">
+                    <svg class="service-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M17,19H7V5H17M17,3H7A2,2 0 0,0 5,5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V5C19,3.89 18.1,3 17,3M9,7H15V9H9V7M9,11H13V13H9V11M9,15H15V17H9V15Z" />
+                    </svg>
+                    <h3>Contenus Digitaux.</h3>
+                    <p>Conception de contenus digitaux engageants, pensés pour les communautés sportives et les réseaux sociaux.</p>
+                </div>
+                <div class="service-item">
+                    <svg class="service-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
+                    </svg>
+                    <h3>Visibilité et Notoriété.</h3>
+                    <p>Développement de la visibilité et de la réputation des acteurs du sport sur le digital et le terrain.</p>
+                </div>
+                <div class="service-item">
+                    <svg class="service-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L19.71,9.71L22,12V6H16Z" />
+                    </svg>
+                    <h3>Stratégie Digitale.</h3>
+                    <p>Élaboration de stratégies de communication digitale sur mesure pour atteindre vos objectifs sportifs et marketing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="histoire">
+        <div class="histoire-wrapper">
+            <div class="histoire-img-col">
+                <img src="./images/histoire.jpg" alt="Notre Histoire - Equipe sportive">
+            </div>
+            <div class="histoire-text-col">
+                <h2>NOTRE <span class="text-green">HISTOIRE</span></h2>
+                <p>Impulse est spécialisée dans la communication digitale et le développement commercial, offrant des solutions sur mesure pour répondre aux besoins variés de nos clients.</p>
+                <p>Nos compétences sont multiples. A travers une approche innovante qui combine analyse de marché, création de contenu pertinent et stratégies de partenariats efficaces, garantissant ainsi une visibilité maximale et un impact mesurable sur le marché.</p>
+                <p>Impulse est spécialisée dans la communication digitale et le développement commercial, offrant des solutions sur mesure pour répondre aux besoins variés de nos clients.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="chiffres">
+        <div class="container">
+            <h2 class="section-title text-white">NOS <span class="text-green">CHIFFRES</span></h2>
+            <div class="chiffres-grid">
+                <div class="chiffre-item">
+                    <h3>6</h3>
+                    <p>Clients accompagnés</p>
+                </div>
+                <div class="chiffre-item">
+                    <h3>1 an</h3>
+                    <p>D'expérience</p>
+                </div>
+                <div class="chiffre-item">
+                    <h3>10+</h3>
+                    <p>Projets réalisés</p>
+                </div>
+                <div class="chiffre-item">
+                    <h3>95%</h3>
+                    <p>Clients satisfaits</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="objectifs">
+        <div class="container">
+            <div class="objectifs-wrapper">
+                <div class="objectifs-content">
+                    <h2 class="section-title text-blue">NOS <span class="text-green">OBJECTIFS</span></h2>
+
+                    <div class="objectif-item">
+                        <svg class="objectif-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A1,1 0 0,0 11,7A1,1 0 0,0 12,8A1,1 0 0,0 13,7A1,1 0 0,0 12,6M11,10V16H13V10H11Z" />
+                        </svg>
+                        <div class="objectif-text">
+                            <h3>Comprendre.</h3>
+                            <p>Comprendre vos besoins suite à un état des lieux et une analyse de vos objectifs.</p>
+                        </div>
+                    </div>
+
+                    <div class="objectif-item">
+                        <svg class="objectif-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M7,22H9V2H7V22M11,22H13V2H11V22M15,22H17V2H15V22M3,22H5V2H3V22M19,22H21V2H19V22Z" />
+                        </svg>
+                        <div class="objectif-text">
+                            <h3>Améliorer.</h3>
+                            <p>Améliorer l'image de votre/vos entité(s) via nos valeurs et vos objectifs.</p>
+                        </div>
+                    </div>
+
+                    <div class="objectif-item">
+                        <svg class="objectif-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z" />
+                        </svg>
+                        <div class="objectif-text">
+                            <h3>Maximiser.</h3>
+                            <p>Maximiser votre potentiel commercial et optimiser votre audience.</p>
+                        </div>
+                    </div>
+
+                    <div class="objectif-item">
+                        <svg class="objectif-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z" />
+                        </svg>
+                        <div class="objectif-text">
+                            <h3>Stabiliser.</h3>
+                            <p>Stabiliser vos projets grâce à des leviers financiers durables et une stratégie maîtrisée.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objectifs-image">
+                    <img src="./images/objectifs.jpg" alt="Sportif criant de joie">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta">
+        <div class="container">
+            <h2>PRÊT À LANCER VOTRE<br>PROJET ?</h2>
+            <p>Rejoignez les marques sportives qui nous font confiance</p>
+            <a href="./contact.php" class="btn">Contactez-nous</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="./images/logo-impulse.png" alt="Impulse Logo" class="logo" style="margin-bottom: 25px;">
+                </div>
+
+                <div class="footer-col">
+                    <h4>Rubriques</h4>
+                    <ul>
+                        <li><a href="./index.html">Accueil</a></li>
+                        <li><a href="./client.php">Nos clients</a></li>
+                        <li><a href="./services.php">Nos services</a></li>
+                        <li><a href="./contact.php">Contact</a></li>
+                        <li><br><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Clients</h4>
+                    <ul>
+                        <li><a href="./client.php">Photo et vidéos</a></li>
+                        <li><a href="./client.php">Créations graphique</a></li>
+                        <li><a href="./client.php">Sponsoring et mécénat</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="./services.php">Contenu digitaux</a></li>
+                        <li><a href="./services.php">Visibilité et Notoriété</a></li>
+                        <li><a href="./services.php">Stratégie digital</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:Contact@impulse-club.fr">Contact@impulse-club.fr</a></li>
+                        <li><a href="tel:0689671525">06 89 67 15 25</a></li>
+                        <li style="margin-top: 20px;">
+                            <a href="https://www.instagram.com/impulse_fr?igsh=MXd4cndpbThrcXFwMA==" aria-label="Instagram">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#11DD9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                2026 - Impulse club - Tout droit réservé
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

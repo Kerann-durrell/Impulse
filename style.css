@@ -1,0 +1,81 @@
+
+.img-fluid:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.clients-list {
+    /*display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;*/
+    overflow-x: hidden;
+}
+
+
+:root {
+    --deep-blue: #1a2b56;
+    --emerald: #00f2a1;
+}
+
+.text-emerald { color: var(--emerald); }
+.bg-deep-blue { background-color: var(--deep-blue); }
+
+.icon-box {
+    background-color: var(--emerald);
+    color: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+.opening-hours {
+    background-color: var(--deep-blue);
+    font-size: 0.95rem;
+}
+
+.form-container {
+    background-color: var(--deep-blue);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-control, .form-select {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 12px 15px;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--emerald);
+    box-shadow: none;
+    color: white;
+}
+
+.btn-emerald {
+    background-color: var(--emerald);
+    color: var(--deep-blue);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-emerald:hover {
+    background-color: #00d990;
+    transform: translateY(-2px);
+}
